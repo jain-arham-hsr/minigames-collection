@@ -1,14 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<!Doctype html>
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0;url=./v1">
-  <title>Redirecting...</title>
+  <title>Tic-Tac-Toe</title>
+  <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 
 <body>
-  <p>If you are not redirected automatically, <a href="./v1 (Vanilla)/index.html">click here</a>.</p>
+  <div id="game">
+    <div class="turn"><span id="turn-symbol">&#9675;</span> <span id="text">Turn</span></div>
+    <div class="grid-container">
+      <button onclick="renderMove(1)" id="cell1" class="cell" type="button"></button>
+      <button onclick="renderMove(2)" id="cell2" class="cell" type="button"></button>
+      <button onclick="renderMove(3)" id="cell3" class="cell" type="button"></button>
+      <button onclick="renderMove(4)" id="cell4" class="cell" type="button"></button>
+      <button onclick="renderMove(5)" id="cell5" class="cell" type="button"></button>
+      <button onclick="renderMove(6)" id="cell6" class="cell" type="button"></button>
+      <button onclick="renderMove(7)" id="cell7" class="cell" type="button"></button>
+      <button onclick="renderMove(8)" id="cell8" class="cell" type="button"></button>
+      <button onclick="renderMove(9)" id="cell9" class="cell" type="button"></button>
+    </div>
+  </div>
+  <button onclick="refresh()" class="refresh" type="button">↻</button>
+  <script src="./script.js"></script>
 </body>
 
 </html>
