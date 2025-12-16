@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Exo+2&display=swap");
+
+body {
+  background-color: #0099ff;
+}
+
+#score {
+  background-color: #4a752c;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 10px;
+  height: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-decoration: bold;
+  border-radius: 20px;
+  font-size: 25px;
+  font-family: "Exo 2", sans-serif;
+}
+
+#garden {
+  margin-top: 5px;
+  background-color: #aad751;
+  background-image: linear-gradient(45deg,
+      #a1d149 25%,
+      transparent 25%,
+      transparent 75%,
+      #a1d149 75%),
+    linear-gradient(45deg,
+      #a1d149 25%,
+      transparent 25%,
+      transparent 75%,
+      #a1d149 75%);
+  background-size: 64px 64px;
+  background-position: 0 0, 32px 32px;
+  border-radius: 7px;
+  border: 5px solid #568a34;
+  margin-left: 29%;
+  margin-right: 350px;
+}
+
+#food {
+  display: none;
+}
+
+#restartBtn {
+  background-color: #fef200;
+  color: #000000;
+  outline: none;
+  border: #000000 2px solid;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  display: none;
+  border-radius: 50px;
+  margin-left: 20px;
+}
+
+#restartBtn:hover {
+  cursor: pointer;
+  background-color: #fed800;
+}

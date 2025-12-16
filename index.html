@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcade Hub</title>
+  <style>
+    body {
+      background-color: #121212;
+      margin: 0;
+      padding: 40px 20px;
+      /* Add some vertical spacing */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      font-family: sans-serif;
+    }
+
+    h1 {
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 60px;
+      font-size: 2rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .gallery-container {
+      display: flex;
+      flex-direction: column;
+      /* Forces one per row */
+      gap: 50px;
+      /* Space between cards */
+      width: 100%;
+
+      /* THIS CONTROLS THE SIZE */
+      max-width: 700px;
+      /* Constrains width so they aren't huge */
+    }
+
+    .game-link {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+      background: #000;
+      /* Fallback color */
+    }
+
+    .game-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    /* Hover Effects */
+    .game-link:hover {
+      transform: translateY(-5px);
+      /* Lift up slightly */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      border-color: #fff;
+    }
+
+    .game-link:hover img {
+      transform: scale(1.03);
+      /* Subtle zoom */
+      filter: brightness(1.1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Select Your Game</h1>
+
+  <div class="gallery-container">
+    <a href="./flappy-bird/" class="game-link">
+      <img src="./flappy-bird/cover.png" alt="Flappy Bird">
+    </a>
+
+    <a href="./simon-game/" class="game-link">
+      <img src="./simon-game/cover.png" alt="Simon Game">
+    </a>
+
+    <a href="./snake-game/" class="game-link">
+      <img src="./snake-game/cover.png" alt="Snake Game">
+    </a>
+
+    <a href="./tic-tac-toe/v1/" class="game-link">
+      <img src="./tic-tac-toe/cover.png" alt="Tic Tac Toe">
+    </a>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+body {
+    background-color: #14bdac;
+}
+
+.cell {
+    background-color: #0da192;
+    border: none;
+    color: #ffffff;
+    height: 100px;
+    width: 100px;
+    font-size: 100px;
+    outline: none;
+    line-height: 1em;
+    vertical-align: middle;
+}
+
+.cell:hover {
+    background-color: #12dac6;
+    cursor: pointer;
+}
+
+.grid-container {
+    width: 321px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 7px;
+    grid-gap: 7px;
+}
+
+.turn {
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+#text {
+    font-size: 0.5em;
+    line-height: 1em;
+    vertical-align: middle;
+}
+
+.refresh {
+    font-size: 45px;
+    float: right;
+    background-color: #14bdac;
+    color: #0c7a6f;
+    border: none;
+    outline: none;
+}
+
+.refresh:hover {
+    cursor: pointer;
+}
+
+#game {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
