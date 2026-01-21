@@ -1,6 +1,3 @@
-/**
- * CONSTANTS & CONFIGURATION
- */
 const canvas = document.getElementById("garden");
 const FOOD_IMG = document.getElementById("food");
 const scoreLabel = document.querySelector("#hud .score .value");
@@ -271,6 +268,13 @@ class Snake {
   }
 
   render() {
+    ctx.save();
+    // Set the shadow once for all segments
+    ctx.shadowColor = "rgba(0, 0, 0, 0.4)";
+    ctx.shadowBlur = 10;
+    ctx.shadowOffsetX = 3;
+    ctx.shadowOffsetY = 3;
+
     this.bodySegments.forEach((segment, index) => {
       const alpha = 1 - (index / this.bodySegments.length) * 0.5;
       ctx.fillStyle = rgba(SNAKE_COLOR.r, SNAKE_COLOR.g, SNAKE_COLOR.b, alpha);
@@ -278,10 +282,11 @@ class Snake {
       ctx.fillRect(
         segment.x * PATCH_SIZE,
         segment.y * PATCH_SIZE,
-        PATCH_SIZE - 1,
-        PATCH_SIZE - 1,
+        PATCH_SIZE, // The -1 keeps segments distinct
+        PATCH_SIZE,
       );
     });
+    ctx.restore();
   }
 }
 
@@ -292,6 +297,13 @@ class Food {
   }
 
   render() {
+    // ctx.save();
+
+    ctx.shadowColor = "rgba(0, 0, 0, 0.5)"; // Semi-transparent black
+    ctx.shadowBlur = 8; // Softness of the shadow
+    ctx.shadowOffsetX = 4; // Move shadow 4px to the right
+    ctx.shadowOffsetY = 4; // Move shadow 4px down
+
     ctx.drawImage(
       FOOD_IMG,
       this.x * PATCH_SIZE,
@@ -299,6 +311,8 @@ class Food {
       PATCH_SIZE,
       PATCH_SIZE,
     );
+
+    // ctx.restore();
   }
 }
 

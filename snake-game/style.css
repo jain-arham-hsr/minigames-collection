@@ -6,11 +6,10 @@ body {
   width: 100%;
   height: 100%;
   background: radial-gradient(
-    circle at top center,
-    #2c3e70 0%,
-    #1b2a4a 35%,
-    #0b132b 70%,
-    #020617 100%
+    circle at 50% 20%,
+    #2f4378 0%,
+    #1f2f57 40%,
+    #0e1933 80%
   );
 }
 
@@ -39,8 +38,6 @@ body {
 
   color: #355f2e;
 
-  background: linear-gradient(to bottom, #f6ffd9, #dcefa8);
-
   border-radius: 16px;
 
   box-shadow:
@@ -48,11 +45,29 @@ body {
     inset 0 2px 0 rgba(255, 255, 255, 0.7),
     inset 0 -3px 6px rgba(0, 0, 0, 0.12);
   width: 95%;
+  border-radius: 18px;
+  background: linear-gradient(to bottom, #f8ffe3, #d8e7a3);
+}
+
+#hud::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.12;
+  pointer-events: none;
 }
 
 .score {
   display: flex;
   align-items: center;
+}
+
+.score .icon {
+  margin-right: 8px;
+  font-size: 18px;
+  color: #4f9a2d;
 }
 
 .score .label {
@@ -76,26 +91,26 @@ body {
 
   color: #5a3b1e;
 
-  background: linear-gradient(to bottom, #ffe4a8, #c5913e);
-
   border-radius: 50%;
   border: none;
 
-  box-shadow:
-    0 3px 6px rgba(0, 0, 0, 0.35),
-    inset 0 1px 1px rgba(255, 255, 255, 0.6),
-    inset 0 -2px 3px rgba(0, 0, 0, 0.25);
-
   cursor: pointer;
   transition: transform 0.1s ease;
+
+  background: linear-gradient(to bottom, #f3e2b8, #c89a52);
+
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.3);
 }
 
 .pause-btn:active {
   transform: scale(0.9);
 }
 
-#garden {
-  background: linear-gradient(145deg, #9fbe6b, #7f9f4e);
+.control-btn:hover {
+  filter: brightness(1.05);
 }
 
 #garden {
@@ -111,10 +126,10 @@ body {
     /* checker grid (subtle) */
     linear-gradient(
         45deg,
-        rgba(0, 0, 0, 0.06) 25%,
+        rgba(0, 0, 0, 0.04) 25%,
         transparent 25%,
         transparent 75%,
-        rgba(0, 0, 0, 0.06) 75%
+        rgba(0, 0, 0, 0.04) 75%
       ),
     linear-gradient(
       45deg,
@@ -144,6 +159,21 @@ body {
     inset 0 -8px 14px rgba(0, 0, 0, 0.18);
 
   overflow: hidden;
+}
+
+#garden::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px
+  );
+
+  background-size: 4px 4px;
+  opacity: 0.25;
+  pointer-events: none;
 }
 
 #food {
