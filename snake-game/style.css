@@ -1,42 +1,149 @@
-@import url("https://fonts.googleapis.com/css?family=Exo+2&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600&family=Nunito:wght@500;600&display=swap");
 
+html,
 body {
-  background-color: #0099ff;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at top center,
+    #2c3e70 0%,
+    #1b2a4a 35%,
+    #0b132b 70%,
+    #020617 100%
+  );
 }
 
-#score {
-  background-color: #4a752c;
-  text-align: center;
-  color: #ffffff;
-  margin-bottom: 10px;
-  height: 30px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-decoration: bold;
-  border-radius: 20px;
-  font-size: 25px;
-  font-family: "Exo 2", sans-serif;
+#game-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px; /* space between HUD and board */
+}
+
+#hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px 16px;
+
+  font-family: "Baloo 2", "Nunito", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+
+  color: #355f2e;
+
+  background: linear-gradient(to bottom, #f6ffd9, #dcefa8);
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.25),
+    inset 0 2px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.12);
+  width: 95%;
+}
+
+.score {
+  display: flex;
+  align-items: center;
+}
+
+.score .label {
+  opacity: 0.6;
+  margin-right: 6px;
+}
+
+.score .value {
+  color: #4f9a2d;
+}
+
+.control-btn {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+
+  color: #5a3b1e;
+
+  background: linear-gradient(to bottom, #ffe4a8, #c5913e);
+
+  border-radius: 50%;
+  border: none;
+
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.25);
+
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.pause-btn:active {
+  transform: scale(0.9);
 }
 
 #garden {
-  margin-top: 5px;
+  background: linear-gradient(145deg, #9fbe6b, #7f9f4e);
+}
+
+#garden {
+  /* Base color + lighting direction */
   background-color: #aad751;
-  background-image: linear-gradient(45deg,
-      #a1d149 25%,
+  background-image:
+    /* soft highlight */
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.35),
+      rgba(255, 255, 255, 0) 40%
+    ),
+    /* checker grid (subtle) */
+    linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.06) 25%,
+        transparent 25%,
+        transparent 75%,
+        rgba(0, 0, 0, 0.06) 75%
+      ),
+    linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.06) 25%,
       transparent 25%,
       transparent 75%,
-      #a1d149 75%),
-    linear-gradient(45deg,
-      #a1d149 25%,
-      transparent 25%,
-      transparent 75%,
-      #a1d149 75%);
-  background-size: 64px 64px;
-  background-position: 0 0, 32px 32px;
-  border-radius: 7px;
-  border: 5px solid #568a34;
-  margin-left: 29%;
-  margin-right: 350px;
+      rgba(0, 0, 0, 0.06) 75%
+    );
+
+  background-size:
+    100% 100%,
+    64px 64px,
+    64px 64px;
+
+  background-position:
+    0 0,
+    0 0,
+    32px 32px;
+
+  border-radius: 16px;
+  border: none;
+
+  /* 3D depth */
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.35),
+    inset 0 3px 6px rgba(255, 255, 255, 0.4),
+    inset 0 -8px 14px rgba(0, 0, 0, 0.18);
+
+  overflow: hidden;
 }
 
 #food {
