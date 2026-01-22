@@ -58,7 +58,7 @@ body {
 .bg-layer {
   position: absolute;
   inset: 0;
-  background-image: url("assets/background.png");
+  background-image: url("assets/Backdrop.png");
   background-repeat: repeat-x;
   background-size: auto 100%;
   background-position: bottom;
@@ -78,7 +78,7 @@ body {
 .ground-layer {
   position: absolute;
   inset: 0;
-  background-image: url("assets/ground.png");
+  background-image: url("assets/Ground.png");
   background-repeat: repeat-x;
   background-size: auto 100%;
 }
