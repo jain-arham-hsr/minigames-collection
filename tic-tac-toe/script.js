@@ -13,8 +13,6 @@ const winningCombos = [
   [2, 4, 6],
 ];
 
-/* ---------- HANDLE MOVE ---------- */
-
 function renderMove(move) {
   if (!gameOn || gamePosition[move - 1]) return;
 
@@ -52,7 +50,6 @@ function renderMove(move) {
       document.getElementById(`cell${index + 1}`).classList.add("win");
     });
 
-    // Show winner symbol instead of "Turn"
     turnSymbol.innerHTML =
       currentTurn === "X"
         ? '<i class="fa-solid fa-xmark"></i>'
@@ -76,8 +73,6 @@ function renderMove(move) {
       ? '<i class="fa-solid fa-xmark"></i>'
       : '<i class="fa-regular fa-o"></i>';
 }
-
-/* ---------- RESET GAME ---------- */
 
 function refresh() {
   const turnSymbol = document.getElementById("turn-symbol");

@@ -1,14 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap");
 
-/* ---------- PAGE ---------- */
-
 body {
   margin: 0;
   background-color: #eaf4f3;
   font-family: "Inter", system-ui, sans-serif;
 }
-
-/* ---------- GAME LAYOUT ---------- */
 
 #game {
   position: absolute;
@@ -17,8 +13,6 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* ---------- HEADER ---------- */
-
 .header {
   width: 360px;
   display: flex;
@@ -26,8 +20,6 @@ body {
   justify-content: space-between;
   margin-bottom: 16px;
 }
-
-/* ---------- TURN INDICATOR ---------- */
 
 .turn {
   display: flex;
@@ -48,8 +40,6 @@ body {
   font-size: 1.4rem;
 }
 
-/* ---------- BOARD ---------- */
-
 .grid-container {
   width: 320px;
   padding: 14px;
@@ -62,8 +52,6 @@ body {
   border-radius: 18px;
   box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
 }
-
-/* ---------- CELLS ---------- */
 
 .cell {
   width: 96px;
@@ -94,8 +82,6 @@ body {
   transform: scale(0.96);
 }
 
-/* ---------- FILLED CELLS ---------- */
-
 .cell.filled {
   background-color: #cfeeed;
   cursor: default;
@@ -104,8 +90,6 @@ body {
 .cell i {
   pointer-events: none;
 }
-
-/* ---------- RESET BUTTON ---------- */
 
 .reset-btn {
   width: 40px;
@@ -136,8 +120,6 @@ body {
   transform: scale(0.95);
 }
 
-/* ---------- ACCESSIBILITY ---------- */
-
 button:focus {
   outline: none;
 }
@@ -145,8 +127,6 @@ button:focus {
 button:focus-visible {
   box-shadow: 0 0 0 3px rgba(20, 189, 172, 0.35);
 }
-
-/* ---------- WINNING CELLS ---------- */
 
 .cell.win {
   background-color: #bfe7e3;
