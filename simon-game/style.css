@@ -1,102 +1,25 @@
-#container {
-  background-color: #05386b;
-  height: 450px;
-  width: 450px;
-  border-radius: 450px;
-  z-index: 950;
-  position: relative;
+:root {
+  --ring-bg: #0b2e59;
+  --divider: #123a6f;
+
+  --green: #6fd9a6;
+  --red: #ef5a5a;
+  --yellow: #f5e16b;
+  --blue: #4aa3d8;
+
+  --ui-text: #243b53;
+  --ui-muted: #6b7c93;
+  --bg: #eef1f4;
 }
 
-.signal-button {
-  border: none;
-  outline: none;
-  z-index: 2;
-  width: 200px;
-  height: 200px;
-  margin-left: 15px;
-  margin-top: 15px;
-  animation-duration: 0.6s;
-  animation-iteration-count: 1;
-}
-
-.signal-button:hover {
-  cursor: pointer;
-}
-
-#button1 {
-  background-color: #5cdb95;
-  border-top-left-radius: 450px;
-}
-
-#button1:hover {
-  background-color: #8ce5b4;
-}
-
-#button2 {
-  background-color: #f94d55;
-  border-top-right-radius: 450px;
-}
-
-#button2:hover {
-  background-color: #fa8186;
-}
-
-#button3 {
-  background-color: #fbe551;
-  border-bottom-left-radius: 450px;
-}
-
-#button3:hover {
-  background-color: #fcec85;
-}
-
-#button4 {
-  background-color: #2e9cca;
-  border-bottom-right-radius: 450px;
-}
-
-#button4:hover {
-  background-color: #69badc;
-}
-
-#button-container {
-  background-color: #05386b;
-  height: 250px;
-  width: 250px;
-  border-radius: 250px;
-  position: absolute;
-  z-index: 1000;
-  top: 100px;
-  left: 100px;
-}
-
-#controlButton {
-  background-color: white;
-  position: absolute;
-  border: none;
-  outline: none;
-  height: 200px;
-  width: 200px;
-  border-radius: 200px;
-  font-weight: 500;
-  font-size: 28px;
-  font-family: "Roboto Mono", monospace;
-  top: 25px;
-  left: 25px;
-  text-align: center;
-}
-
-#controlButton:hover {
-  cursor: pointer;
-  background-color: #b2b2b2;
-}
-
-#level {
-  font-family: "Roboto Mono", monospace;
-  font-weight: bold;
-  font-size: 24px;
-  width: 450px;
-  text-align: center;
+body {
+  margin: 0;
+  background-color: var(--bg);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
 }
 
 #game {
@@ -106,9 +29,121 @@
   transform: translate(-50%, -50%);
 }
 
-@keyframes emphasize {
-  50% {
-    transtition: transform 1s;
-    transform: scale(1.1);
-  }
+#container {
+  background: radial-gradient(circle at center, #0e3a6d, var(--ring-bg));
+  height: 450px;
+  width: 450px;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25);
+}
+
+.signal-button {
+  border: none;
+  outline: none;
+  width: 200px;
+  height: 200px;
+  margin-left: 15px;
+  margin-top: 15px;
+  transition:
+    filter 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.signal-button:hover {
+  cursor: pointer;
+}
+
+.signal-button.active {
+  filter: brightness(1.25);
+  box-shadow:
+    inset 0 0 12px rgba(255, 255, 255, 0.35),
+    0 0 22px rgba(255, 255, 255, 0.55);
+}
+
+#button1 {
+  background-color: var(--green);
+  border-top-left-radius: 450px;
+}
+
+#button2 {
+  background-color: var(--red);
+  border-top-right-radius: 450px;
+}
+
+#button3 {
+  background-color: var(--yellow);
+  border-bottom-left-radius: 450px;
+}
+
+#button4 {
+  background-color: var(--blue);
+  border-bottom-right-radius: 450px;
+}
+
+#button-container {
+  background: var(--divider);
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  box-shadow: inset 0 0 0 6px rgba(255, 255, 255, 0.05);
+}
+
+#controlButton {
+  background: radial-gradient(circle at top, #ffffff, #eaeaea);
+  border: none;
+  outline: none;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--ui-text);
+
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.25),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.15);
+
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
+}
+
+#controlButton:hover {
+  cursor: pointer;
+  transform: translateY(-1px);
+}
+
+#controlButton:active {
+  transform: translateY(1px);
+}
+
+#text-panel {
+  margin-top: 28px;
+  width: 450px;
+  text-align: center;
+}
+
+#level {
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--ui-text);
+}
+
+#instructions {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ui-muted);
 }
