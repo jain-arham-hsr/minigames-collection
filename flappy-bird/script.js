@@ -1,6 +1,3 @@
-/**
- * CONSTANTS & CONFIGURATION
- */
 const birdElement = document.getElementById("flappy-bird");
 const pipeContainer = document.getElementById("pipes");
 const scoreLabel = document.getElementById("score");
@@ -16,9 +13,6 @@ const GAME_STATES = {
   GAMEOVER: "GAMEOVER",
 };
 
-/**
- * BACKGROUND ENTITY
- */
 class Background {
   constructor() {
     this.x = 0;
@@ -29,7 +23,6 @@ class Background {
   }
 
   update(isPlaying) {
-    // Only move if the game is actively PLAYING
     if (!isPlaying) return;
 
     this.x -= this.speed;
@@ -44,9 +37,6 @@ class Background {
   }
 }
 
-/**
- * GROUND ENTITY
- */
 class Ground {
   constructor() {
     this.x = 0;
@@ -58,7 +48,6 @@ class Ground {
   }
 
   update(isPlaying) {
-    // Only move if the game is actively PLAYING
     if (!isPlaying) return;
 
     this.x -= this.speed;
@@ -73,9 +62,6 @@ class Ground {
   }
 }
 
-/**
- * BIRD ENTITY
- */
 class Bird {
   constructor() {
     this.reset();
@@ -118,9 +104,6 @@ class Bird {
   }
 }
 
-/**
- * PIPE ENTITY
- */
 class Pipe {
   constructor(type, gapY) {
     this.type = type;
@@ -129,8 +112,6 @@ class Pipe {
     this.height = 600;
     const gapSize = 160;
 
-    // "top" pipe sits at gapY
-    // "bottom" pipe sits at gapY - height - gapSize
     this.y = type === "top" ? gapY : gapY - this.height - gapSize;
 
     this.element = document.createElement("div");
@@ -162,9 +143,6 @@ class Pipe {
   }
 }
 
-/**
- * GAME ENGINE
- */
 class Game {
   constructor() {
     this.bird = new Bird();
@@ -224,7 +202,6 @@ class Game {
 
   spawnPipes(timestamp) {
     if (timestamp - this.lastPipeTime > SPAWN_RATE) {
-      // Ensure pipes don't spawn inside the floor
       const minGapY = 250;
       const maxGapY = window.innerHeight - 150;
       const randomGapY = Math.random() * (maxGapY - minGapY) + minGapY;
@@ -236,12 +213,9 @@ class Game {
   }
 
   checkCollisions() {
-    // 1. Ground Collision (bird hits the floor height)
     if (this.bird.y <= this.ground.height) return true;
 
-    // 2. Pipe Collision
     return this.pipes.some((pipe) => {
-      // Simple AABB collision
       return (
         this.bird.x < pipe.x + pipe.width &&
         this.bird.x + this.bird.width > pipe.x &&
@@ -263,12 +237,10 @@ class Game {
     this.bird.update();
     this.spawnPipes(timestamp);
 
-    // Update Pipes
     for (let i = this.pipes.length - 1; i >= 0; i--) {
       const pipe = this.pipes[i];
       pipe.update();
 
-      // Remove off-screen pipes
       if (pipe.x + pipe.width < 0) {
         pipe.remove();
         this.pipes.splice(i, 1);
@@ -287,7 +259,6 @@ class Game {
     this.pipes.forEach((pipe) => pipe.render());
     this.ground.render();
 
-    // UI Updates
     if (this.currentState === GAME_STATES.STAGED) {
       scoreLabel.innerHTML = "PRESS SPACE TO START";
     } else if (this.currentState === GAME_STATES.GAMEOVER) {
@@ -305,5 +276,4 @@ class Game {
   };
 }
 
-// Start Game
 window.onload = () => new Game();
